@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Calisthenics Weekly Plan</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#38bdf8">
+<link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --accent: #38bdf8;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --success: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #020617, var(--bg));
+  color: var(--text);
+}
+
+header {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+header p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.tab.active {
+  background: var(--accent);
+  color: #020617;
+  font-weight: 600;
+}
+
+.container {
+  padding: 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.day {
+  cursor: pointer;
+}
+
+.day h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.day small {
+  color: var(--muted);
+}
+
+.content {
+  display: none;
+  margin-top: 0.75rem;
+}
+
+.content.active {
+  display: block;
+}
+
+.exercise {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #334155;
+}
+
+.exercise:last-child {
+  border-bottom: none;
+}
+
+.exercise span {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-block;
+  background: #020617;
+  border: 1px solid #334155;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+}
+
+.roadmap-step {
+  padding: 0.75rem;
+  border-left: 3px solid var(--accent);
+  margin-bottom: 0.75rem;
+  background: #020617;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🏋️ Calisthenics Weekly Plan</h1>
+  <p>Strength • Skills • Mobility • Progression</p>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('workout')">Workout</div>
+  <div class="tab" onclick="showTab('skills')">Skills</div>
+  <div class="tab" onclick="showTab('roadmap')">Roadmap</div>
+</div>
+
+<div class="container">
+
+<!-- WORKOUT TAB -->
+<div id="workout" class="tab-content">
+
+  <div class="card day" onclick="toggle(this)">
+    <h3>Day 1 – Push + Handstand</h3>
+    <small>Chest • Shoulders • Triceps</small>
+    <div class="content">
+      <div class="exercise"><span>Decline Push-Ups</span> – 4×12–15</div>
+      <div class="exercise"><span>Pike Push-Ups</span> – 4×8–10</div>
+      <div class="exercise"><span>Dips</span> – 3×10–12</div>
+      <div class="exercise"><span>Scap Push-Ups</span> – 3×12</div>
+      <div class="exercise"><span>Wall Handstand Hold</span> – 4×30s <span class="badge">Skill</span></div>
+    </div>
+  </div>
+
+  <div class="card day" onclick="toggle(this)">
+    <h3>Day 2 – Pull + Front Lever</h3>
+    <small>Back • Biceps</small>
+    <div class="content">
+      <div class="exercise"><span>Pull-Ups</span> – 5×4–6</div>
+      <div class="exercise"><span>Chin-Ups</span> – 3×6–8</div>
+      <div class="exercise"><span>Australian Rows</span> – 3×12</div>
+      <div class="exercise"><span>Tuck Front Lever Hold</span> – 4×15s <span class="badge">Skill</span></div>
+    </div>
+  </div>
+
+  <div class="card day" onclick="toggle(this)">
+    <h3>Day 3 – Legs + Core</h3>
+    <small>Lower Body • Stability</small>
+    <div class="content">
+      <div class="exercise"><span>Bulgarian Split Squats</span> – 4×8/leg</div>
+      <div class="exercise"><span>Assisted Pistol Squats</span> – 3×5</div>
+      <div class="exercise"><span>Hanging Knee Raises</span> – 4×10</div>
+      <div class="exercise"><span>Hollow Body Hold</span> – 3×30s</div>
+    </div>
+  </div>
+
+  <div class="card day" onclick="toggle(this)">
+    <h3>Day 4 – Mobility & Recovery</h3>
+    <small>Joints • Flexibility</small>
+    <div class="content">
+      <div class="exercise"><span>Shoulder CARs</span> – 2×5</div>
+      <div class="exercise"><span>Deep Squat Hold</span> – 2×60s</div>
+      <div class="exercise"><span>Jefferson Curls</span> – 2×8</div>
+      <div class="exercise"><span>Dead Hang</span> – 2×30s</div>
+    </div>
+  </div>
+
+  <div class="card day" onclick="toggle(this)">
+    <h3>Day 5 – Full Body + Muscle-Up Prep</h3>
+    <small>Explosiveness • Power</small>
+    <div class="content">
+      <div class="exercise"><span>Explosive Pull-Ups</span> – 5×3</div>
+      <div class="exercise"><span>Straight Bar Dips</span> – 4×6</div>
+      <div class="exercise"><span>Jump Squats</span> – 3×8</div>
+      <div class="exercise"><span>False Grip Hang</span> – 3×20s <span class="badge">Skill</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SKILLS TAB -->
+<div id="skills" class="tab-content" style="display:none">
+  <div class="card">
+    <h3>🤸 Skill Focus</h3>
+    <div class="exercise">Handstand – Wall → Shoulder Taps → Freestanding</div>
+    <div class="exercise">L-Sit – Tuck → One Leg → Full</div>
+    <div class="exercise">Front Lever – Tuck → Advanced Tuck → One Leg</div>
+    <div class="exercise">Muscle-Up – Explosive Pulls → Transitions → Assisted</div>
+  </div>
+</div>
+
+<!-- ROADMAP TAB -->
+<div id="roadmap" class="tab-content" style="display:none">
+  <div class="card">
+    <h3>📈 4–8 Week Progression</h3>
+    <div class="roadmap-step">Weeks 1–2: Learn positions, clean reps</div>
+    <div class="roadmap-step">Weeks 3–4: Add reps / longer holds</div>
+    <div class="roadmap-step">Weeks 5–6: Harder leverage & tempo</div>
+    <div class="roadmap-step">Weeks 7–8: Assisted advanced skills</div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  Built for home calisthenics • Mobile-first • Offline-ready
+</footer>
+
+<script>
+function toggle(card) {
+  const content = card.querySelector('.content');
+  content.classList.toggle('active');
+}
+
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('Service Worker registered', reg))
+      .catch(err => console.error('Service Worker registration failed', err));
+  });
+}
+</script>
+
+</body>
+</html>
